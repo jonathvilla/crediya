@@ -2,9 +2,12 @@ package co.com.authentication.api.config;
 
 import co.com.authentication.api.Handler;
 import co.com.authentication.api.RouterRest;
+import co.com.authentication.usecase.registeruser.RegisterUserUseCase;
+
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.reactive.WebFluxTest;
+import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.context.annotation.Import;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.web.reactive.server.WebTestClient;
@@ -16,6 +19,10 @@ class ConfigTest {
 
     @Autowired
     private WebTestClient webTestClient;
+
+    @MockBean
+    private RegisterUserUseCase registerUserUseCase;
+
 
     @Test
     void corsConfigurationShouldAllowOrigins() {
